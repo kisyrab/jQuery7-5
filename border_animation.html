@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이동하며 움직이는 박스 테두리</title>
+</head>
+
+    <style>
+            @font-face {
+        font-family: 'PartialSansKR-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        }
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        
+        .box{
+            width: 200px; height: 160px;
+            background-color: #000;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .square{
+            font-family: 'PartialSansKR-Regular';
+            font-size: 2rem;
+            text-decoration: none;
+            display: inline-block;
+            color: #fff;
+            position: relative;
+            line-height: 3.5;
+            width: 100%; height: 100%;
+        }
+
+        .square span{
+            background-color: #fff;
+            position: absolute;
+            text-indent: -9999px;
+        }
+
+        .square span.lin1{
+            width: 2px; height: 100%;
+            left: 0px; bottom: 0px;
+            animation: line1 2s infinite;
+        }
+        .square span.lin2{
+            width: 100%; height: 2px;
+            background-color: #fff;
+            left: 0; top: 0;
+            animation: line2 2s infinite;
+        }
+        .square span.lin3{
+            width: 2px; height: 100%;
+            background-color: #fff;
+            right: 0; top: 0;
+            animation: line3 2s infinite;
+        }
+        .square span.lin4{
+            width: 100%; height: 2px;
+            background-color: #fff;
+            right: 0; bottom: 0;
+            animation: line4 2s infinite;
+        }
+
+        @keyframes line1{
+            0%{height: 0;}
+            25%, 100%{height: 100%;}
+        }
+
+        @keyframes line2{
+            0%, 25%{width: 0;}
+            50%, 100%{width: 100%;}
+        }
+
+        @keyframes line3{
+            0%, 50%{height: 0;}
+            75%, 100%{height: 100%;}
+        }
+
+        @keyframes line4{
+            0%, 75%{width: 0;}
+            100%{width: 100%;}
+        }
+
+
+
+    </style>
+
+<body>
+
+    <div class="box">
+        <a href="#" class="square">Button
+            <span class="lin1">1</span>
+            <span class="lin2">2</span>
+            <span class="lin3">3</span>
+            <span class="lin4">4</span>
+        </a>
+    </div>
+
+</body>
+</html>

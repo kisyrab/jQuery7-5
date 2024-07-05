@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리로 버튼 누르면 배경색과 글자 바꾸기</title>
+    
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script lang="java">
+        $(function(){
+            $("button").click(function(){
+                var bg = $(this).text();
+                console.log(bg);
+                $("body").animate({"background-color" : bg}, 500);
+            }) // button click
+            
+
+
+            $(".list li").click(function(){
+                var bg2 = $(this).attr("bg");
+                $("body").animate({"background-color" : bg2}, 500);
+            }) // li click
+
+            
+
+            $("p").hover(function(){
+                var h_tit2 = $(this).attr("tit2");
+                $(this).text(h_tit2)
+            }, function(){
+                var h_tit1 = $(this).attr("tit1");
+                $(this).text(h_tit1)
+                
+            }) //text hover
+
+
+        }) //j
+    </script>
+
+</head>
+<body>
+    
+    <button>blue</button>
+    <button>#050C9C</button>
+    <button>#3572EF</button>
+    <button>#3ABEF9</button>
+    <button>#A7E6FF</button>
+
+
+    <ul class="list">
+        <li bg="red">빨강</li>
+        <li bg="yellow">노랑</li>
+        <li bg="purple">보라</li>
+        <li bg="green">초록</li>
+        <li bg="blue">파랑</li>
+    </ul>
+
+    <p tit1="헬로키티" tit2="Hello_Kitty">헬로키티</p>
+    <p tit1="핑구" tit2="Pingu">핑구</p>
+    <p tit1="스폰지밥" tit2="Sponge_bob">스폰지밥</p>
+    <p tit1="미피" tit2="Miffy">미피</p>
+    <p tit1="톰과 제리" tit2="Tom_and_Jerry">톰과 제리</p>
+
+</body>
+</html>

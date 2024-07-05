@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu hover시 따라오는 bar</title>
+    <style type="text/css">
+        html,body{height: 100%; width: 100%;}
+        *{margin: 0; padding: 0;}
+        a{text-decoration: none; color: inherit;}
+        @font-face {
+            font-family: 'MoveSans-Bold';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-2@1.0/MoveSans-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PartialSansKR-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Giants-Inline';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body{background: rgb(30,79,136);
+            background: radial-gradient(circle, rgb(20, 55, 95) 0%, rgba(6,0,71,1) 100%);}
+
+        nav{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        nav a{
+            display: inline-block;
+            color: #fff;
+            font-weight: 900;
+            padding: 10px 20px;
+            /* font-family: 'PartialSansKR-Regular'; */
+            font-family: 'Giants-Inline';
+            letter-spacing: 5px;
+            /* font-size: 50px; */
+            font-style: italic;
+            position: relative;
+            text-shadow: 0 0 5px #fff;
+        }
+
+        nav a::before , nav a::after{
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: all 0.2s ease;
+            box-shadow: 0 0 3px #fff;
+        }
+        
+        nav a::before{
+            width: 6px; height: 6px; 
+            background-color: #fff;
+            top: 0; left: 10px;
+        }
+
+        nav a::after{
+            width: 4px; height: 4px; 
+            background-color: lime;
+            top: 4px; left: 19px;
+        }
+
+        nav a:nth-child(1)::before{background-color: #E26EE5;}
+        nav a:nth-child(1)::after{background-color: #06D001;}
+        
+        nav a:nth-child(2)::before{background-color: #FFFF80;}
+        nav a:nth-child(2)::after{background-color: #7E30E1;}
+        
+        nav a:nth-child(3)::before{background-color: #0079FF}
+        nav a:nth-child(3)::after{background-color: #F94C10;}
+
+
+
+        #bar{
+            position: absolute;
+            left: 10px; bottom: 0;
+            width: 50px; height: 2px;
+            /* background-color: #fff; */
+            border-radius: 10px;
+            transition: all 0.3s ease-out;
+            
+        }
+
+        nav a:nth-child(1):hover ~ #bar{
+            background: linear-gradient(to right, #E26EE5,#06D001 ); box-shadow: 0 0 3px #fff;
+        }
+
+        nav a:nth-child(2):hover ~ #bar{
+            left: 38%;
+            background: linear-gradient(to right, #FFFF80,#7E30E1 ); box-shadow: 0 0 3px #fff;
+        }
+
+        nav a:nth-child(3):hover ~ #bar{
+            left: 65%;
+            background: linear-gradient(to right, #0079FF,#F94C10 ); box-shadow: 0 0 3px #fff;  
+        }
+
+        nav a:hover::before, nav a:hover::after{transform: scale(1);}
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <nav>
+        <a href="#">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#">jQuery</a>
+        <span id="bar"></span>
+    </nav>
+
+</body>
+</html>

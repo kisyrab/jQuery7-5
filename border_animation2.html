@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시간차를 두고 움직이는 bar</title>
+
+    <style>
+
+        body{
+            background-color: #000;
+        }
+        .box{
+            width: 400px; height: 400px;
+            margin: 100px auto;
+            border: 10px solid #e2e2e2;
+            position: relative;
+        }
+
+        .box::before{
+            position: absolute;
+            content: "";
+            width: 10px; height: 10px;
+            background-color: deeppink;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.596);
+            top: -10px; left: -10px;
+            animation: border 3s ease-in forwards;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .box::after{
+            position: absolute;
+            content: "";
+            width: 10px; height: 10px;
+            background-color: deeppink;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.596);
+            right: -10px; bottom: -10px;
+            animation: border 3s ease-in forwards 3s;
+            border-radius: 5px 0 0 5px ;
+        }
+
+        @keyframes border{
+            0%{width: 10px;}
+            100%{width: 420px;}
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+
+    </div>
+
+
+
+</body>
+</html>

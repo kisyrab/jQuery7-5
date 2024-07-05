@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery의 attribute(attr):속성을 활용해서 hover할 때 속성 바꾸기</title>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script lang="java">
+        $(function(){
+            // var src = $("img").attr("src");
+            // console.log(src);
+            
+            // var alt = $("img").attr("alt");
+            // console.log(alt);
+            
+            // var tit = $("img").attr("title")
+            // console.log(tit);
+            
+            // $("img").attr("title" , "Dream House")
+            // $("img").attr("src" , "img/home1.jpg");
+            
+            var bg = $(".p1").attr("bg")
+            console.log(bg);
+            
+            var bg1 = $(".p1").attr("bg1")
+            console.log(bg1);
+
+            $("p").hover(function(){
+                var bg = $(this).attr("bg");
+                $(this).css({"background" : bg })
+            }, function(){
+                var back1 = $(this).attr("bg1");
+                $(this).css({"background" : back1 })
+                
+            })//hover
+
+            $("img").hover(function(){
+                var img2 = $(this).attr("img2")
+                console.log("img2 :" , img2);
+                $(this).attr("src" , img2);
+            }, function(){
+                var img1 = $(this).attr("img1");
+                $(this).attr("src" , img1)
+            })
+
+            var txt = $("a").text();
+            console.log(txt);
+            
+            var p1_txt = $("p1").text()
+            console.log(p1_txt);
+
+
+            $("p1").text("ksy");
+            $("p2").text("txt");
+
+        }) //j
+
+    </script>
+
+    <style>
+        body{
+            background: #ffcff0;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/home.jpg" alt="home" title="꿈의 집" img1="img/home.jpg" img2="img/home1.jpg" >
+    <a href="http://naver.com">naver</a>
+
+    <div class="text1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus sequi perferendis iste, nulla illum veritatis
+        quisquam iure distinctio a sapiente aliquid est rerum voluptatem harum inventore alias placeat odit
+        exercitationem.
+    </div>
+
+    <p class="p1" bg="#E8C5E5" bg1="#F7F9F2">Cheese</p>
+    <p class="p2" bg="#9B86BD" bg1="#9BEC00">Bread</p>
+
+</body>
+
+</html>
